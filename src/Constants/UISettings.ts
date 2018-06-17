@@ -2,8 +2,8 @@
 
 export namespace UISettings {
     // ブラウザのウインドウイズがこの比率の範囲ならフルスクリーン表示
-    export const minCanvasRatio = 12.0 / 9.0;
-    export const maxCanvasRatio = 16.0 / 9.0;
+    export const minCanvasRatio = 1.0 / 1.0;
+    export const maxCanvasRatio = 1.0 / 1.0;
 
     // 物理サイズがいかなる場合でもゲーム内の論理座標系の横幅が常に320になるように指定
     // この値とブラウザの物理サイズによって対応する高さが動的にきまる。高さはCoord.worldHeight()で取得可能。

@@ -12,7 +12,9 @@ import 'Extension/Sprite';
 import { Coord } from "Core/Coord";
 import { BootState } from "State/BootState";
 import { PreloadState } from "State/PreloadState";
+import { StartState } from 'State/StartState';
 import { InGameState } from 'State/InGameState';
+import { ResultState } from 'State/ResultState';
 
 // ゲームの初期化
 const game = new Phaser.Game(Coord.canvasWidth, Coord.canvasHeight, Phaser.AUTO, "");
@@ -32,7 +34,9 @@ document.addEventListener('touchstart', event => {
 // State(他で言うところのシーン)の登録
 game.state.add("BootState", BootState);
 game.state.add("PreloadState", PreloadState);
+game.state.add("StartState", StartState);
 game.state.add("InGameState", InGameState);
+game.state.add("ResultState", ResultState);
 
 // エントリーポイントState開始
 game.state.start("BootState");
