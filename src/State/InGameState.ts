@@ -14,7 +14,7 @@ export class InGameState extends CustomState {
     static LaneWidth: number = InGameState.LaalaInterval * (InGameState.NumBufferedLaala - 1);
     static LaalaDestX: number = (Coord.worldWidth - InGameState.LaneWidth) * 0.5;
     static LaalaOriginX: number = (Coord.worldWidth + InGameState.LaneWidth) * 0.5;
-    static ReminingTime: number = 30 * 1000;
+    static ReminingTime: number = 20 * 1000;
 
     private flickDetector: FlickDetector;
     private laala: Laala[] = [];
