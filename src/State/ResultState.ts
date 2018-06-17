@@ -23,10 +23,11 @@ export class ResultState extends CustomState {
 
         this.game.stage.backgroundColor = 0xDDDDDD;
 
-        this.text = this.game.add.text(10, 10, "Result", { font: '32px', fill: '#555' });
+        this.text = this.game.add.text(10, 10, "Result", { font: '32px "ヒラギノ角ゴ Pro W6"', fill: '#555' });
         this.text.anchor.setTo(0.5, 0);
         this.text.position.setTo(Coord.worldCenterX, 20);
-        this.scoreText = this.game.add.text(10, 10, "らぁらちゃんを " + this.score + " 人出荷しました!", { font: '18px', fill: '#555' });
+        this.text.resolution = window.devicePixelRatio;
+        this.scoreText = this.game.add.text(10, 10, "らぁらちゃんを " + this.score + " 人出荷しました!", { font: '18px "ヒラギノ角ゴ Pro W6"', fill: '#555' });
         this.scoreText.anchor.setTo(0.5, 0);
         this.scoreText.position.setTo(Coord.worldCenterX, 120);
         this.scoreText.resolution = window.devicePixelRatio;

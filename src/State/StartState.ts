@@ -17,7 +17,8 @@ export class StartState extends CustomState {
 
         this.game.stage.backgroundColor = 0xDDDDDD;
 
-        this.text = this.game.add.text(10, 10, "かしこまジャッジ!", { font: '22px', fill: '#555' });
+        this.text = this.game.add.text(10, 10, "かしこまジャッジ!", { font: '22px "ヒラギノ角ゴ Pro W6"', fill: '#555' });
+        this.text.resolution = window.devicePixelRatio;
         this.text.anchor.setTo(0.5, 1);
         this.text.position.setTo(Coord.worldCenterX, Coord.worldCenterY);
 
