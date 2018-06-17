@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    font-size: 95%;
+}
+
+canvas {
+    margin: 0 auto;
+}
