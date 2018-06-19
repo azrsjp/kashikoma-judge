@@ -32,10 +32,6 @@ export class InGameState extends CustomState {
     private frontLane: Phaser.Sprite;
     private backLane: Phaser.Sprite;
 
-    // 残り時間バー
-    private reminingTimeBar: Phaser.Sprite;
-    private reminingTimeBarBack: Phaser.Sprite;
-
     constructor() {
         super();
     }
@@ -126,8 +122,6 @@ export class InGameState extends CustomState {
     update() {
         if (this.isGameOver) {
             this.game.state.start("ResultState", true, false, this.score);
-        } else {
-            this.updateReminingTime();
         }
         this.updateReminingTime();
     }
@@ -158,21 +152,19 @@ export class InGameState extends CustomState {
     }
 
     private progress() {
-        if (!this.laala.every(e => e.isLaalaReady())) {
-            return;
-        }
-
         const previousTarget = this.currentTarget;
         this.currentTarget = this.updateTarget();
 
         for (let i = 0; i < this.laala.length; ++i) {
             this.laala[i].moveForward(-InGameState.LaalaInterval);
-
-            this.laala[previousTarget].hideSerif();
         }
 
-        
+        this.laala[previousTarget].hideSerif();
         this.laala[this.currentTarget].showSerif();
+    }
+
+    private canProgress() {
+        return this.laala.every(e => e.isLaalaReady());
     }
 
     private updateTarget() {
@@ -195,8 +187,10 @@ export class InGameState extends CustomState {
 
     private selectRightLaala() {
         if (this.laala[this.currentTarget].isRightLaala()) {
-            this.displayScore(this.countUpScore());
-            this.progress();
+            if (this.canProgress()) {
+                this.displayScore(this.countUpScore());
+                this.progress();
+            }
         } else {
             // ゲーオーバー
             console.log("GameOver");
@@ -206,10 +200,12 @@ export class InGameState extends CustomState {
 
     private selectBadLaala() {
         if (!this.laala[this.currentTarget].isRightLaala()) {
-            this.ticketNum += 1;
-            this.laala[this.currentTarget].showTicket(this.ticketNum);
-            this.displayScore(this.countUpScore());
-            this.progress();
+            if (this.canProgress()) {
+                this.ticketNum += 1;
+                this.laala[this.currentTarget].showTicket(this.ticketNum);
+                this.displayScore(this.countUpScore());
+                this.progress();
+            }
         } else {
             // ゲーオーバー
             console.log("GameOver");
