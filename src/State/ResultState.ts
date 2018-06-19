@@ -58,7 +58,7 @@ export class ResultState extends CustomState {
         const twitter = "http://twitter.com/share"
         const url = location.href.toString();
         const hashtag = "かしこまジャッジ,らぁらちゃん可愛い";
-        const text = 'かしこまジャッジ遊んだ結果，' + score + '人のらぁらちゃんを出荷できました!';
+        const text = 'かしこまジャッジで遊んだ結果，' + score + '人のらぁらちゃんを出荷できました!';
 
         window.location.href = twitter + '?url=' + url + '&hashtags=' + hashtag + '&text=' + text;
     }
